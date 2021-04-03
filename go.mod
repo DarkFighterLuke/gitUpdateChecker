@@ -1,4 +1,4 @@
-module gitUpdateChecker
+module github.com/DarkFighterLuke/gitUpdateChecker
 
 go 1.16
 
