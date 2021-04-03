@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// Tests the monitoring process launcher
 func TestStartUpdateProcess(t *testing.T) {
 	gitUpdateChecker.SetRepoInfo("https://github.com/DarkFighterLuke/test.git")
 	_, err := gitUpdateChecker.StartUpdateProcess(1 * time.Second)

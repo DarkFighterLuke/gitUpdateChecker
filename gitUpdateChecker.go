@@ -14,10 +14,12 @@ type RepoInfo struct {
 
 var info RepoInfo
 
+// Sets repo address
 func SetRepoInfo(repoAddress string) {
 	info.address = repoAddress
 }
 
+// Starts the monitoring process and returns a channel to listen for updates
 func StartUpdateProcess(timeInterval time.Duration) (chan bool, error) {
 	if info.address == "" {
 		return nil, fmt.Errorf("empty repository address")
@@ -28,6 +30,7 @@ func StartUpdateProcess(timeInterval time.Duration) (chan bool, error) {
 	return ch, nil
 }
 
+// Monitors repo address checking for new commits and returns true on the channel if there are ones
 func updateChecker(ch chan bool, timeInterval time.Duration) {
 	var oldHash string
 	var isFirstRun = true
